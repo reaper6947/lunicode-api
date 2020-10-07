@@ -20,7 +20,7 @@ app.get("/:option/:text", (req, res) => {
         console.log(text.replace(/\s/g,'-'));
         const txt = text.replace(/\s/g,'-'); 
         var encText = luni.tools[option].encode(`${txt}`);
-        res.send(encText);    
+        res.send(`<h1>${encText}</h1>`);    
     } else {
         res.end()
     }

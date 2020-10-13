@@ -1,30 +1,33 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 var luni = require("lunicode");
 //var luni = new Lunicode();
 
 //middlwares
-app.use(express.static("public"));
+app.set('view engine', 'ejs');
+app.use(express.static('views'))
 
 
 app.get("/",(req,res)=>{
-  res.send("index")
+  res.render("index")
 })
+
+app.get("/text", (req, res) => {
+    res.render("text");
+})
+
 
 app.get("/:option/:text", (req, res) => {
     const { option, text } = req.params;
-    
-
-
     if (text && text !== undefined && text !== null )  {
         console.log(text.replace(/\s/g,'-'));
         const txt = text.replace(/\s/g,'-'); 
         var encText = luni.tools[option].encode(`${txt}`);
-        res.send(`<h1>${encText}</h1>`);    
+        res.render("text",{text:encText});    
     } else {
         res.end()
     }
-    
 })
 
 

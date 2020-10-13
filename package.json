@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "unicode"
@@ -13,7 +13,11 @@
   "author": "reaper",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "lunicode": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
   }
 }
